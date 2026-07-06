@@ -70,5 +70,10 @@ def setup_agent_engine_telemetry() -> None:
     import google.auth
     from vertexai.agent_engines.templates.adk import _default_instrumentor_builder
 
-    _, project_id = google.auth.default()
-    _default_instrumentor_builder(project_id, enable_tracing=True, enable_logging=True)
+    try:
+        _, project_id = google.auth.default()
+        _default_instrumentor_builder(project_id, enable_tracing=True, enable_logging=True)
+    except Exception as e:
+        logging.warning(
+            f"Agent Engine telemetry disabled - Google Application Default Credentials not found: {e}"
+        )
