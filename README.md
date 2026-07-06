@@ -144,7 +144,7 @@ graph TD
    git add .
    git commit -m "Initial commit: wildlife-guard ADK agent"
    git branch -M main
-   git remote add origin https://github.com/<your-username>/wildlife-guard.git
+   git remote add origin https://github.com/ananya2126/wildlife-guard.git
    git push -u origin main
 
 3. Verify .gitignore includes:
@@ -157,8 +157,9 @@ graph TD
 ⚠ NEVER push .env to GitHub. Your API key will be exposed publicly.
 
 ## Assets
-- [Architecture Diagram](file:///d:/adk-worksspace/wildlife-guard/assets/architecture_diagram.png)
-- [Cover Banner](file:///d:/adk-worksspace/wildlife-guard/assets/cover_page_banner.png)
+![Architecture Diagram](assets/architecture_diagram.png)
+
+![Cover Page Banner](assets/cover_page_banner.png)
 
 ## Demo Script
 Refer to [DEMO_SCRIPT.txt](file:///d:/adk-worksspace/wildlife-guard/DEMO_SCRIPT.txt) for presentation narration.
