@@ -162,4 +162,4 @@ graph TD
 ![Cover Page Banner](assets/cover_page_banner.png)
 
 ## Demo Script
-Refer to [DEMO_SCRIPT.txt](file:///d:/adk-worksspace/wildlife-guard/DEMO_SCRIPT.txt) for presentation narration.
+Refer to [DEMO_SCRIPT.txt](DEMO_SCRIPT.txt) for presentation narration.
