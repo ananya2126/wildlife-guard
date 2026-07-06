@@ -1,0 +1,48 @@
+[0:00 - HOOK]
+Hello everyone. Today, I am excited to show you how we are solving a critical challenge in wildlife conservation: helping park rangers monitor vast areas of wilderness against poaching and illegal logging while keeping sensitive visitor data completely secure.
+
+(pause)
+
+[0:20 - WHAT IT IS]
+Our project is called WildlifeGuard, an intelligent, multi-agent assistant built for the "Agents for Good" track. It processes trail camera reports and citizen observations to identify security threats, extract ecological details, and automate dispatch pipelines.
+
+(pause)
+
+[0:40 - SHOW THE BANNER]
+(show assets/cover_page_banner.png)
+As you can see on our cover banner, WildlifeGuard is automated, secure, and intelligent, combining real-time camera alerts with protective filters and human control.
+
+(pause)
+
+[1:00 - ARCHITECTURE]
+(show assets/architecture_diagram.png)
+Let me walk you through how this works under the hood. 
+First, the camera logs enter the Security Checkpoint node, which scrubs out names or license plates and blocks prompt injections.
+Next, the ok inputs are routed to our main orchestrator_agent, which reads the alert and classifies it.
+Depending on the classification, the route_decision node forwards the request to either the ranger_threat_agent for security concerns, or the ecological_sightings_agent for wildlife logs.
+Both agents can query our MCP Server on the right to retrieve conservation status, light conditions, or coordinates.
+If the ranger_threat_agent detects a critical poaching risk, the flow pauses at the ranger_approval_node, where we wait for a human operator to approve dispatching rangers before generating the final_response.
+
+(pause)
+
+[2:00 - LIVE DEMO]
+(switch to playground at localhost:18081)
+Now, let us see the system in action.
+First, I will simulate an urgent poaching alert: "Alert: Surveillance camera at Lat 4.56, Long -74.12 spotted 3 intruders with rifles entering Sector 4 at 02:00 AM."
+Once I submit this, the orchestrator routes it to the ranger threat handler, which queries coordinate weather. Notice how the playground UI now displays a confirmation pause: "Do you approve sending this ranger dispatch alert?". If I reply "yes", the system dispatches the squad.
+
+Next, let us submit an ecological report: "Observation: Spotted a herd of 50 elephants near coordinates Lat 1.25, Long -60.05 moving north."
+The orchestrator correctly routes this to the ecological analyst. The agent automatically queries our MCP species database, identifies them as African Forest Elephants, notes their critically endangered status, and logs the sighting without needing ranger dispatch.
+
+Finally, let us test privacy protection: "Visitor report from tourist Alice at alice@gmail.com: Spied a rhino near Sector 3. Licence plate ABC-1234 was parked nearby."
+Observe how the output contains redacted plate and email tags, preserving visitor confidentiality while logging the sighting data.
+
+(pause)
+
+[3:00 - SECURITY & MCP]
+Our security checkpoint uses strict regex patterns to redact emails, phone numbers, and license plates, logging every transaction to a structured JSON audit trail. Meanwhile, our MCP tools bridge the LLM with live databases and weather information to make every report accurate.
+
+(pause)
+
+[3:30 - IMPACT / CLOSE]
+WildlifeGuard ensures that ranger teams are dispatched only when validated by humans, protecting resources and wildlife while maintaining data security. Thank you for your time.
